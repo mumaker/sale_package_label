@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="report_package_label_document">
+    <t t-call="report.html_container">
+        <div class="page">
+            <t t-foreach="docs" t-as="o">
+               <table class="table table-condensed">
+                    <tr class="border-black">
+                        <strong>TO:</strong>
+                        <div t-field="o.partner_id"
+                             t-options='{"widget": "contact", "fields": ["street2", "zip", "city"], "no_marker": True}'/>
+                    </tr>
+                    <tr class="border-black">
+                       <strong>FROM:</strong>
+                       <div class="col-xs-6" name="company_address">
+                           <span t-field="o.company_id"
+                                t-field-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'
+                                style="border-bottom: 1px solid black; display:inline-block;"/>
+                        </div>
+                    </tr>
+                </table>
+            </t>
+        </div>
+    </t>
+</template>
+</odoo>

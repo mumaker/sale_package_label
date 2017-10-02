@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report 
+            id="report_sale_package_label"
+            string="Package Label"
+            model="sale.order" 
+            report_type="qweb-pdf"
+            file="sale_package_label.report_package_label_document" 
+            name="sale_package_label.report_package_label_document" 
+        />
+    </data>
+</odoo>
