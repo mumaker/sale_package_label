@@ -6,6 +6,9 @@
     'summary': 'Package Label to paste in the package. Included FROM and TO address',
     'description': """
         Modification of:
+        Create a new report that contain package report.  
+        It creates two columns: first one with shipping address, second one with Company address.
+        Can be access from Print menu, and allow to create one label or all that you select.
         """,
     'author': 'mumaker',
     'depends': ['website'],

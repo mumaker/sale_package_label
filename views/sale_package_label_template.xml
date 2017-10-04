@@ -4,15 +4,34 @@
     <t t-call="report.html_container">
         <div class="page">
             <t t-foreach="docs" t-as="doc">
-               <table class="table table-condensed">
+            <style>
+            table, td, th {    
+                border: 1px solid #ddd;
+                text-align: left;
+            }
+
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            th, td {
+                padding: 15px;
+            }
+            </style>
+               <table>
                 <tr>
-                    <td class="border-black">
+                    <td>
+                        <h3>
                         <strong>TO:</strong>
                         <div t-field="doc.partner_id" t-field-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: true}"/>
+                        </h3>
                     </td>
-                    <td class="border-black">
-                       <strong>FROM:</strong>
-                       <div t-field="doc.company_id" t-field-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: true}"/>
+                    <td>
+                        <h3>
+                        <strong>FROM:</strong>
+                        <div t-field="doc.company_id.partner_id" t-field-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;], &quot;no_marker&quot;: true}"/>
+                        </h3>
                     </td>
                 </tr>
                 </table>
