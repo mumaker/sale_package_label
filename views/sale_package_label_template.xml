@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-<template id="report_package_label_document">
+<template id="report_package_label_document_a4">
     <t t-call="report.html_container">
         <div class="page">
             <t t-foreach="docs" t-as="doc">
@@ -39,4 +39,21 @@
         </div>
     </t>
 </template>
+
+<template id="report_package_label_document">
+    <t t-call="report.html_container">
+        <t t-foreach="docs" t-as="doc">
+        <div class="page">
+            <strong>TO:</strong>
+            <div t-field="doc.partner_id" t-field-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: true}"/>
+        </div>
+        
+        <div class="page">
+            <strong>FROM:</strong>
+            <div t-field="doc.company_id.partner_id" t-field-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;], &quot;no_marker&quot;: true}"/>
+        </div>
+        </t>
+    </t>
+</template>
+
 </odoo>
