@@ -3,21 +3,18 @@
 <template id="report_package_label_document">
     <t t-call="report.html_container">
         <div class="page">
-            <t t-foreach="docs" t-as="o">
+            <t t-foreach="docs" t-as="doc">
                <table class="table table-condensed">
-                    <tr class="border-black">
+                <tr>
+                    <td class="border-black">
                         <strong>TO:</strong>
-                        <div t-field="o.partner_id"
-                             t-options='{"widget": "contact", "fields": ["street2", "zip", "city"], "no_marker": True}'/>
-                    </tr>
-                    <tr class="border-black">
+                        <div t-field="doc.partner_id" t-field-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: true}"/>
+                    </td>
+                    <td class="border-black">
                        <strong>FROM:</strong>
-                       <div class="col-xs-6" name="company_address">
-                           <span t-field="o.company_id"
-                                t-field-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'
-                                style="border-bottom: 1px solid black; display:inline-block;"/>
-                        </div>
-                    </tr>
+                       <div t-field="doc.company_id" t-field-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: true}"/>
+                    </td>
+                </tr>
                 </table>
             </t>
         </div>
