@@ -16,8 +16,12 @@
             }
 
             th, td {
-                padding: 15px;
+                padding: 5px;
             }
+            div.a {
+                line-height: 0.5;
+            }
+
             </style>
                <table>
                 <tr>
@@ -51,6 +55,33 @@
         <div class="page">
             <strong>FROM:</strong>
             <div t-field="doc.company_id.partner_id" t-field-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;], &quot;no_marker&quot;: true}"/>
+        </div>
+
+        <div class="page">
+            <h6><small>
+                <table>
+                    <tr>
+                        <td>
+                            <p class="small"><strong t-field="doc.name"/></p>
+                        </td>
+                    </tr>
+                </table>
+
+              <t t-foreach="doc.order_line" t-as="order_line">
+                <t t-if="order_line.product_id.sale_ok">
+                <table>
+                    <tr>
+                        <td>
+                            <p class = "small" t-field="order_line.product_uom_qty"/>
+                        </td>
+                        <td>
+                            <p class = "small" t-field="order_line.product_id"/>
+                        </td>
+                    </tr>
+                </table>
+                </t>
+              </t>
+            </small></h6>
         </div>
         </t>
     </t>
